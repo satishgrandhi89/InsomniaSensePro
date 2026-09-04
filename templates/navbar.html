@@ -1,0 +1,107 @@
+<script src="https://cdn.tailwindcss.com"></script>
+
+<nav class="bg-slate-900 text-white shadow-lg">
+    <div class="max-w-7xl mx-auto px-4">
+        <div class="flex justify-between items-center h-16">
+
+            <!-- Brand -->
+            <a href="/" class="text-xl font-semibold tracking-wide">
+                Insomnia<span class="text-violet-300">SensePro</span>
+            </a>
+
+            <!-- Mobile Button -->
+            <button id="menu-btn" class="md:hidden p-2 rounded hover:bg-slate-800 focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+            </button>
+
+            <!-- Desktop Menu -->
+            <ul class="hidden md:flex space-x-6 items-center font-medium">
+
+                <li><a href="/" class="hover:text-violet-300 transition">Home</a></li>
+                <li><a href="/about" class="hover:text-violet-300 transition">About</a></li>
+
+                <!-- DROPDOWN -->
+                <li class="relative">
+                    <button id="ml-btn" class="hover:text-violet-300 flex items-center transition">
+                        Machine Learning
+                        <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </button>
+
+                    <ul id="ml-menu"
+                        class="absolute opacity-0 invisible bg-slate-800 rounded-lg shadow-lg py-2 w-44 mt-2 transition-all duration-200">
+                        <li><a href="/model" class="block px-4 py-2 hover:bg-slate-700">Models</a></li>
+                        <li><a href="/result" class="block px-4 py-2 hover:bg-slate-700">Training Result</a></li>
+                    </ul>
+                </li>
+
+                {% if session.get('logged') %}
+                <li><a href="/predict" class="hover:text-violet-300 transition">Predict</a></li>
+                <li><a href="/logout" class="hover:text-violet-300 transition">Logout</a></li>
+                {% else %}
+                <li><a href="/login" class="hover:text-violet-300 transition">Login</a></li>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+
+    <!-- Mobile Dropdown -->
+    <div id="mobile-menu" class="md:hidden hidden bg-slate-800">
+        <ul class="px-4 py-3 space-y-2">
+
+            <li><a href="/" class="block hover:text-violet-300">Home</a></li>
+            <li><a href="/about" class="block hover:text-violet-300">About</a></li>
+
+            <li>
+                <details class="text-white">
+                    <summary class="cursor-pointer">Machine Learning</summary>
+                    <ul class="ml-4 mt-2 space-y-1">
+                        <li><a href="/model" class="block hover:text-violet-300">Models</a></li>
+                        <li><a href="/result" class="block hover:text-violet-300">Training Result</a></li>
+                    </ul>
+                </details>
+            </li>
+
+            {% if session.get('logged') %}
+            <li><a href="/predict" class="block hover:text-violet-300">Predict</a></li>
+            <li><a href="/logout" class="block hover:text-violet-300">Logout</a></li>
+            {% else %}
+            <li><a href="/login" class="block hover:text-violet-300">Login</a></li>
+            {% endif %}
+        </ul>
+    </div>
+</nav>
+
+<script>
+    // mobile menu
+    const btn = document.getElementById("menu-btn");
+    const mobile = document.getElementById("mobile-menu");
+    btn.addEventListener("click", () => mobile.classList.toggle("hidden"));
+
+    // dropdown with delay
+    const mlBtn = document.getElementById("ml-btn");
+    const mlMenu = document.getElementById("ml-menu");
+    let hideTimeout;
+
+    function showMenu() {
+        clearTimeout(hideTimeout);
+        mlMenu.classList.remove("opacity-0", "invisible");
+        mlMenu.classList.add("opacity-100", "visible");
+    }
+
+    function hideMenu() {
+        hideTimeout = setTimeout(() => {
+            mlMenu.classList.add("opacity-0", "invisible");
+            mlMenu.classList.remove("opacity-100", "visible");
+        }, 400); // delay in ms
+    }
+
+    mlBtn.addEventListener("mouseenter", showMenu);
+    mlMenu.addEventListener("mouseenter", showMenu);
+
+    mlBtn.addEventListener("mouseleave", hideMenu);
+    mlMenu.addEventListener("mouseleave", hideMenu);
+</script>

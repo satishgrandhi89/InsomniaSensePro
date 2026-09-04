@@ -1,0 +1,195 @@
+.fs-custom {
+    font-size: 20px;
+}
+
+.fs-custom-2 {
+    font-size: 16px;
+}
+
+.fs-small {
+    font-size: 13px;
+}
+
+.bg-primary {
+    background-color: #282C34 !important;
+}
+
+.bg-primary-dark {
+    background-color: #1e2127 !important;
+}
+
+.bg-contrast {
+    background: #0077B6 !important;
+}
+
+.bg-primary-subtle {
+    background-color: #fff !important;
+    color: #333;
+}
+
+.bg-gradient {
+    background: linear-gradient(to right bottom, #3498DB, #2ECC71) !important;
+}
+
+.bg-gradient-2 {
+    background: linear-gradient(to right, #3498DB, #E0C3FC) !important;
+}
+
+.btn-primary {
+    background-color: #0077B6 !important;
+    border-color: #0077B6 !important;
+}
+
+.bg-img {
+    background: url('../images/bg/login.jpg');
+    background-size: cover;
+}
+
+.blur-filter {
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(3px);
+    background-color: #ffffff28;
+}
+
+.container-jflex {
+    display: flex;
+    justify-content: center;
+}
+
+.container-aflex {
+    display: flex;
+    align-items: center;
+}
+
+.container-flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hover-card {
+    position: relative;
+    transition: top 0.5s !important;
+    top: 0;
+}
+
+.hover-card:hover {
+    top: -15px;
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+}
+
+.card-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: rgba(0, 0, 0, 0.5);
+    border-radius: 8px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.card-red {
+    background: linear-gradient(to right, #ff0000, #ff6666);
+    color: #fff;
+}
+
+.card-green {
+    background: linear-gradient(to right, #00ff00, #66ff66);
+    color: #000;
+}
+
+.card-blue {
+    background: linear-gradient(to right, #0077B6, #016ba4);
+    color: #fff;
+}
+
+.card-purple {
+    background: linear-gradient(to right, #9B5DE5, #a575df);
+    color: #fff;
+}
+
+.card-orange {
+    background: linear-gradient(to right, #FF7F50, #FFA500);
+    color: #fff;
+}
+
+.parallax {
+    /* The image used */
+    background-image: url("../images/bg/bg.webp");
+
+    /* Set a specific height */
+    min-height: 500px;
+    background-color: #F3F5F7;
+
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: left;
+    background-repeat: no-repeat;
+    background-size: contain;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.accordion {
+    --bs-accordion-bg: #0077B6 !important;
+    --bs-accordion-active-bg: #0077B6 !important;
+    --bs-accordion-active-color: #fff !important;
+}
+
+.accordion-body {
+    color: #fff !important;
+}
+
+.accordion-button {
+    color: #fff !important;
+    box-shadow: none !important;
+}
+
+.table-primary {
+    --bs-table-bg: #fff !important;
+    --bs-table-hover-bg: skyblue !important;
+}
+
+.table-active {
+    --bs-table-bg-state: skyblue !important;
+}
+
+/* Adding styles to button */
+.btn-ripple {
+    cursor: pointer;
+
+    /* We need this to position
+span inside button */
+    position: relative;
+    overflow: hidden;
+    box-shadow: 6px 7px 40px -4px rgba(0, 0, 0, 0.1);
+}
+
+.btn-ripple span {
+    position: absolute;
+    border-radius: 50%;
+    /* To make it round */
+    background-color: rgba(0, 0, 0, 0.3);
+
+    width: 100px;
+    height: 100px;
+
+    animation: ripple 2s;
+    opacity: 0;
+}
+
+/* Add animation */
+@keyframes ripple {
+    from {
+        opacity: 1;
+        transform: scale(0);
+    }
+
+    to {
+        opacity: 0;
+        transform: scale(10);
+    }
+}

@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Insomnia Risk Prediction | InsomniaSensePro</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-slate-950 text-gray-100">
+
+    {% include 'navbar.html' %}
+
+    <section class="max-w-5xl mx-auto px-6 py-12">
+
+        <!-- Header -->
+        <div class="bg-slate-900 border border-slate-800 text-white shadow rounded-2xl p-6 mb-8">
+            <h1 class="text-2xl font-bold text-violet-200">
+                Insomnia Risk Prediction
+            </h1>
+            <p class="text-slate-300 mt-2">
+                Enter the following lifestyle and health details to estimate insomnia risk using our AI-powered model.
+            </p>
+        </div>
+
+        <!-- Form Card -->
+        <div class="bg-slate-900 border border-slate-800 shadow-lg rounded-2xl p-8">
+
+            <form action="/output" method="post" class="grid md:grid-cols-3 gap-6">
+
+
+                <!-- Gender -->
+                <div>
+                    <label for="Gender" class="block font-medium mb-1">Gender</label>
+                    <select name="Gender" id="Gender"
+                        class="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 focus:ring-violet-500 focus:outline-none">
+                        <option value="0">Male</option>
+                        <option value="1">Female</option>
+                    </select>
+                    <p class="text-xs text-slate-400 mt-1">Encoded: Male = 0, Female = 1</p>
+                </div>
+
+
+                <!-- Age -->
+                <div>
+                    <label for="Age" class="block font-medium mb-1">Age</label>
+                    <input type="number" name="Age" id="Age"
+                        class="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 focus:ring-violet-500 focus:outline-none">
+                    <p class="text-xs text-slate-400 mt-1">Typical range: 18 - 90+</p>
+                </div>
+
+
+                <!-- Occupation -->
+                <div>
+                    <label for="Occupation" class="block font-medium mb-1">Occupation</label>
+                    <select name="Occupation" id="Occupation"
+                        class="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 focus:ring-violet-500 focus:outline-none">
+
+                        <option value="0">Software Engineer</option>
+                        <option value="1">Doctor</option>
+                        <option value="2">Sales Representative</option>
+                        <option value="3">Teacher</option>
+                        <option value="4">Nurse</option>
+                        <option value="5">Engineer</option>
+                        <option value="6">Accountant</option>
+                        <option value="7">Scientist</option>
+                        <option value="8">Lawyer</option>
+                        <option value="9">Salesperson</option>
+                        <option value="10">Manager</option>
+
+                    </select>
+                    <p class="text-xs text-slate-400 mt-1">Encoded 0 − 10 depending on job category</p>
+                </div>
+
+
+                <!-- Sleep Duration -->
+                <div>
+                    <label for="Sleep Duration" class="block font-medium mb-1">Sleep Duration (hrs)</label>
+                    <input type="number" step="0.1" name="Sleep Duration" id="Sleep Duration"
+                        class="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 focus:ring-violet-500 focus:outline-none">
+                    <p class="text-xs text-slate-400 mt-1">Healthy range: 6 - 9 hours</p>
+                </div>
+
+
+                <!-- Quality of Sleep -->
+                <div>
+                    <label for="Quality of Sleep" class="block font-medium mb-1">Quality of Sleep (1-10)</label>
+                    <input type="number" name="Quality of Sleep" id="Quality of Sleep" min="1" max="10"
+                        class="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 focus:ring-violet-500 focus:outline-none">
+                    <p class="text-xs text-slate-400 mt-1">1 = Very Poor • 10 = Excellent</p>
+                </div>
+
+
+                <!-- Physical Activity -->
+                <div>
+                    <label for="Physical Activity Level" class="block font-medium mb-1">Physical Activity Level
+                        (mins/day)</label>
+                    <input type="number" name="Physical Activity Level" id="Physical Activity Level"
+                        class="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 focus:ring-violet-500 focus:outline-none">
+                    <p class="text-xs text-slate-400 mt-1">Recommended: 30 - 60 mins/day</p>
+                </div>
+
+
+                <!-- Stress Level -->
+                <div>
+                    <label for="Stress Level" class="block font-medium mb-1">Stress Level (1-10)</label>
+                    <input type="number" name="Stress Level" id="Stress Level" min="1" max="10"
+                        class="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 focus:ring-violet-500 focus:outline-none">
+                    <p class="text-xs text-slate-400 mt-1">1 = No Stress • 10 = Extremely High</p>
+                </div>
+
+
+                <!-- BMI Category -->
+                <div>
+                    <label for="BMI Category" class="block font-medium mb-1">BMI Category</label>
+                    <select name="BMI Category" id="BMI Category"
+                        class="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 focus:ring-violet-500 focus:outline-none">
+
+                        <option value="0">Underweight</option>
+                        <option value="1">Normal</option>
+                        <option value="1">Normal Weight</option>
+                        <option value="2">Overweight</option>
+                        <option value="3">Obese</option>
+
+                    </select>
+                    <p class="text-xs text-slate-400 mt-1">Values encoded 0-3</p>
+                </div>
+
+
+                <!-- Heart Rate -->
+                <div>
+                    <label for="Heart Rate" class="block font-medium mb-1">Heart Rate (bpm)</label>
+                    <input type="number" name="Heart Rate" id="Heart Rate"
+                        class="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 focus:ring-violet-500 focus:outline-none">
+                    <p class="text-xs text-slate-400 mt-1">Typical resting range: 60 - 100 bpm</p>
+                </div>
+
+
+                <!-- Daily Steps -->
+                <div>
+                    <label for="Daily Steps" class="block font-medium mb-1">Daily Steps</label>
+                    <input type="number" name="Daily Steps" id="Daily Steps"
+                        class="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 focus:ring-violet-500 focus:outline-none">
+                    <p class="text-xs text-slate-400 mt-1">General goal: 5,000 - 10,000+</p>
+                </div>
+
+
+                <!-- Systolic BP -->
+                <div>
+                    <label for="Systolic_BP" class="block font-medium mb-1">Systolic Blood Pressure (mm Hg)</label>
+                    <input type="number" name="Systolic_BP" id="Systolic_BP"
+                        class="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 focus:ring-violet-500 focus:outline-none">
+                    <p class="text-xs text-slate-400 mt-1">Normal range: ~ 90 - 120</p>
+                </div>
+
+
+                <!-- Diastolic BP -->
+                <div>
+                    <label for="Diastolic_BP" class="block font-medium mb-1">Diastolic Blood Pressure (mm Hg)</label>
+                    <input type="number" name="Diastolic_BP" id="Diastolic_BP"
+                        class="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 focus:ring-violet-500 focus:outline-none">
+                    <p class="text-xs text-slate-400 mt-1">Normal range: ~ 60 - 80</p>
+                </div>
+
+
+                <!-- Submit Button -->
+                <div class="md:col-span-3 mt-6 flex justify-center">
+                    <button type="submit"
+                        class="bg-violet-600 hover:bg-violet-500 text-white px-8 py-3 rounded-lg transition">
+                        Predict
+                    </button>
+                </div>
+
+            </form>
+
+            <!-- Disclaimer -->
+            <p class="text-xs text-slate-400 mt-6">
+                ⚠️ <b>Note:</b> These ranges are general references. Real-world health values vary between individuals.
+                This tool provides AI-based risk estimation and should not replace professional medical advice.
+            </p>
+
+        </div>
+
+    </section>
+
+    {% include 'footer.html' %}
+
+</body>
+
+</html>

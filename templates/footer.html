@@ -1,0 +1,44 @@
+<footer class="bg-slate-900 text-slate-200 mt-16">
+    <div class="max-w-7xl mx-auto px-6 py-10 grid md:grid-cols-3 gap-8">
+
+        <!-- Brand -->
+        <div>
+            <h2 class="text-xl font-semibold">
+                Somni<span class="text-violet-300">Sense</span>
+            </h2>
+            <p class="text-sm mt-3 text-slate-400 leading-relaxed">
+                AI-powered insomnia risk prediction helping users take control of their sleep health with informed
+                awareness.
+            </p>
+        </div>
+
+        <!-- Quick Links -->
+        <div>
+            <h3 class="font-semibold mb-3 text-violet-300">Quick Links</h3>
+            <ul class="space-y-2">
+                <li><a href="/" class="hover:text-violet-300">Home</a></li>
+                <li><a href="/about" class="hover:text-violet-300">About</a></li>
+                <li><a href="/model" class="hover:text-violet-300">Models</a></li>
+                <li><a href="/result" class="hover:text-violet-300">Training Result</a></li>
+                <li><a href="/login" class="hover:text-violet-300">Login</a></li>
+            </ul>
+        </div>
+
+        <!-- Info -->
+        <div>
+            <h3 class="font-semibold mb-3 text-violet-300">Disclaimer</h3>
+            <p class="text-sm text-slate-400 leading-relaxed">
+                This application provides AI-generated predictions for educational and research purposes only.
+                It is not a medical diagnostic tool. Please consult a qualified healthcare professional for medical
+                advice.
+            </p>
+        </div>
+
+    </div>
+
+    <div class="bg-slate-950 py-4">
+        <p class="text-center text-xs text-slate-400">
+            InsomniaSensePro © {{ now().year if now else '2026' }} — All Rights Reserved
+        </p>
+    </div>
+</footer>

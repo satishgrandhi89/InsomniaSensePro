@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>InsomniaSensePro — Insomnia Prediction</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-slate-950 text-gray-100">
+
+    {% include 'navbar.html' %}
+
+    <!-- HERO -->
+    <section class="bg-gradient-to-b from-slate-900 to-slate-950">
+        <div class="max-w-6xl mx-auto px-6 py-20 grid md:grid-cols-2 gap-10 items-center">
+
+            <!-- Text -->
+            <div>
+                <h1 class="text-4xl md:text-5xl font-bold leading-tight">
+                    Sleep Better with
+                    <span class="text-violet-300">InsomniaSensePro</span>
+                </h1>
+
+                <p class="mt-4 text-slate-300 leading-relaxed">
+                    An AI-powered tool designed to help estimate the risk of insomnia using lifestyle,
+                    health, and behavioral indicators — so you can take earlier action toward
+                    healthier sleep.
+                </p>
+
+                <div class="mt-8 flex gap-4">
+                    {% if session.get('logged') %}
+                    <a href="/predict"
+                        class="bg-violet-600 hover:bg-violet-500 text-white px-6 py-3 rounded-lg transition">
+                        Predict Now
+                    </a>
+                    {% else %}
+                    <a href="/login"
+                        class="bg-violet-600 hover:bg-violet-500 text-white px-6 py-3 rounded-lg transition">
+                        Get Started
+                    </a>
+                    {% endif %}
+
+                    <a href="/about"
+                        class="border border-violet-400 text-violet-300 hover:bg-slate-800 px-6 py-3 rounded-lg transition">
+                        Learn More
+                    </a>
+                </div>
+            </div>
+
+            <!-- Illustration -->
+            <div class="flex justify-center">
+                <img src="{{ url_for('static', filename='images/bg/bg.png') }}" alt="sleep illustration"
+                    class="w-80 md:w-[420px] drop-shadow-2xl rounded-xl opacity-90">
+            </div>
+        </div>
+    </section>
+
+
+    <!-- FEATURES -->
+    <section class="max-w-6xl mx-auto px-6 py-16">
+
+        <h2 class="text-3xl font-semibold text-center mb-10">
+            Why Somni<span class="text-violet-300">Sense</span>?
+        </h2>
+
+        <div class="grid md:grid-cols-3 gap-6">
+
+            <div class="bg-slate-900 border border-slate-800 p-6 rounded-2xl">
+                <h3 class="text-lg font-semibold text-violet-300">AI-Driven Insights</h3>
+                <p class="text-slate-300 mt-2">
+                    Built using trained machine learning models to detect insomnia-related risk factors.
+                </p>
+            </div>
+
+            <div class="bg-slate-900 border border-slate-800 p-6 rounded-2xl">
+                <h3 class="text-lg font-semibold text-violet-300">User Friendly</h3>
+                <p class="text-slate-300 mt-2">
+                    Simple input forms and clear, understandable results — no technical background required.
+                </p>
+            </div>
+
+            <div class="bg-slate-900 border border-slate-800 p-6 rounded-2xl">
+                <h3 class="text-lg font-semibold text-violet-300">Awareness Focused</h3>
+                <p class="text-slate-300 mt-2">
+                    Designed to support self-awareness — not replace medical professionals.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- CTA -->
+    <section class="bg-slate-900 py-12">
+        <div class="max-w-5xl mx-auto px-6 text-center">
+            <h3 class="text-2xl font-semibold">
+                Ready to understand your sleep health?
+            </h3>
+            <p class="text-slate-300 mt-2">
+                Start your insomnia risk assessment in just a few minutes.
+            </p>
+
+            <div class="mt-6">
+                {% if session.get('logged') %}
+                <a href="/predict" class="bg-violet-600 hover:bg-violet-500 px-8 py-3 rounded-lg transition">
+                    Begin Prediction
+                </a>
+                {% else %}
+                <a href="/login" class="bg-violet-600 hover:bg-violet-500 px-8 py-3 rounded-lg transition">
+                    Login to Continue
+                </a>
+                {% endif %}
+            </div>
+        </div>
+    </section>
+
+
+    {% include 'footer.html' %}
+
+</body>
+
+</html>

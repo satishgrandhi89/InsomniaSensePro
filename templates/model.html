@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Models | InsomniaSensePro</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-slate-950 text-gray-100">
+
+    {% include 'navbar.html' %}
+
+    <!-- Header -->
+    <section class="bg-slate-900 text-white border-b border-slate-800">
+        <div class="max-w-6xl mx-auto px-6 py-12 text-center">
+            <h1 class="text-3xl font-bold text-violet-200">
+                Machine Learning Models Behind InsomniaSensePro
+            </h1>
+            <p class="mt-3 text-slate-300">
+                These AI models help estimate insomnia risk using health and lifestyle data.
+            </p>
+        </div>
+    </section>
+
+
+    <!-- Cards Section -->
+    <section class="max-w-7xl mx-auto px-6 py-14">
+
+        <div class="grid md:grid-cols-3 gap-6">
+
+            <!-- Logistic Regression -->
+            <div
+                class="bg-slate-900 border border-slate-800 p-6 rounded-2xl shadow hover:shadow-violet-900/20 transition">
+                <h3 class="text-xl font-semibold text-violet-300">
+                    Logistic Regression
+                </h3>
+                <p class="mt-2 text-slate-300 leading-relaxed">
+                    A simple and interpretable model that estimates the probability of a binary outcome — widely used in
+                    healthcare analytics.
+                </p>
+
+                <a href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html"
+                    target="_blank" class="inline-block mt-3 text-violet-300 hover:underline">
+                    Learn more →
+                </a>
+            </div>
+
+
+            <!-- KNN -->
+            <div
+                class="bg-slate-900 border border-slate-800 p-6 rounded-2xl shadow hover:shadow-violet-900/20 transition">
+                <h3 class="text-xl font-semibold text-violet-300">
+                    K-Nearest Neighbors (KNN)
+                </h3>
+                <p class="mt-2 text-slate-300 leading-relaxed">
+                    Classifies new data based on similarity to its closest neighbors — intuitive and effective for
+                    pattern-based predictions.
+                </p>
+
+                <a href="https://scikit-learn.org/stable/modules/generated/sklearn.neighbors.KNeighborsClassifier.html"
+                    target="_blank" class="inline-block mt-3 text-violet-300 hover:underline">
+                    Learn more →
+                </a>
+            </div>
+
+
+            <!-- Extra Trees -->
+            <div
+                class="bg-slate-900 border border-slate-800 p-6 rounded-2xl shadow hover:shadow-violet-900/20 transition">
+                <h3 class="text-xl font-semibold text-violet-300">
+                    ExtraTrees Classifier
+                </h3>
+                <p class="mt-2 text-slate-300 leading-relaxed">
+                    An ensemble model that builds many randomized trees, improving performance while reducing
+                    overfitting.
+                </p>
+
+                <a href="https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.ExtraTreesClassifier.html"
+                    target="_blank" class="inline-block mt-3 text-violet-300 hover:underline">
+                    Learn more →
+                </a>
+            </div>
+
+
+            <!-- GaussianNB -->
+            <div
+                class="bg-slate-900 border border-slate-800 p-6 rounded-2xl shadow hover:shadow-violet-900/20 transition">
+                <h3 class="text-xl font-semibold text-violet-300">
+                    Gaussian Naive Bayes
+                </h3>
+                <p class="mt-2 text-slate-300 leading-relaxed">
+                    A probability-based classifier that assumes feature independence — lightweight and efficient for
+                    medical data.
+                </p>
+
+                <a href="https://scikit-learn.org/stable/modules/generated/sklearn.naive_bayes.GaussianNB.html"
+                    target="_blank" class="inline-block mt-3 text-violet-300 hover:underline">
+                    Learn more →
+                </a>
+            </div>
+
+
+            <!-- Decision Tree -->
+            <div
+                class="bg-slate-900 border border-slate-800 p-6 rounded-2xl shadow hover:shadow-violet-900/20 transition">
+                <h3 class="text-xl font-semibold text-violet-300">
+                    Decision Tree Classifier
+                </h3>
+                <p class="mt-2 text-slate-300 leading-relaxed">
+                    A visual model that splits data by decision rules — easy to understand and explain.
+                </p>
+
+                <a href="https://scikit-learn.org/stable/modules/generated/sklearn.tree.DecisionTreeClassifier.html"
+                    target="_blank" class="inline-block mt-3 text-violet-300 hover:underline">
+                    Learn more →
+                </a>
+            </div>
+
+
+            <!-- Random Forest -->
+            <div
+                class="bg-slate-900 border border-slate-800 p-6 rounded-2xl shadow hover:shadow-violet-900/20 transition">
+                <h3 class="text-xl font-semibold text-violet-300">
+                    Random Forest Classifier
+                </h3>
+                <p class="mt-2 text-slate-300 leading-relaxed">
+                    An ensemble of decision trees that improves prediction accuracy and stability.
+                </p>
+
+                <a href="https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestClassifier.html"
+                    target="_blank" class="inline-block mt-3 text-violet-300 hover:underline">
+                    Learn more →
+                </a>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    {% include 'footer.html' %}
+
+</body>
+
+</html>

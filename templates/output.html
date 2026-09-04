@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Prediction Result | InsomniaSensePro</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-slate-950 text-gray-100">
+
+    {% include 'navbar.html' %}
+
+    <section class="max-w-6xl mx-auto px-6 py-12">
+
+        <!-- Profile Card -->
+        <div class="bg-slate-900 border border-slate-800 shadow rounded-2xl p-8">
+            <h2 class="text-2xl font-bold text-center text-violet-200">
+                Entered Sleep & Health Profile
+            </h2>
+
+            <hr class="my-4 border-slate-700">
+
+            <div class="grid md:grid-cols-3 gap-4 text-gray-300">
+
+                {% for item in profile %}
+                <div class="bg-slate-800 border border-slate-700 rounded-lg px-4 py-3">
+                    {{ item }}
+                </div>
+                {% endfor %}
+
+            </div>
+        </div>
+
+
+        <!-- Prediction Result -->
+        <div class="mt-10 bg-violet-700 text-white shadow-lg rounded-2xl p-8">
+
+            <h2 class="text-2xl font-bold text-center">
+                Insomnia Risk Prediction
+            </h2>
+
+            <hr class="my-4 border-violet-300">
+
+            <p class="text-lg text-center leading-relaxed">
+                {{ output }}
+            </p>
+
+        </div>
+
+
+        <!-- Disclaimer -->
+        <div class="mt-6 bg-slate-900 border border-slate-800 rounded-xl shadow p-6">
+            <p class="text-sm text-slate-300 text-center">
+                ⚠️ This result is generated using AI-based statistical models and should not be considered
+                a medical diagnosis. If you are experiencing persistent sleep issues,
+                please consult a qualified healthcare professional.
+            </p>
+        </div>
+
+    </section>
+
+    {% include 'footer.html' %}
+
+</body>
+
+</html>
